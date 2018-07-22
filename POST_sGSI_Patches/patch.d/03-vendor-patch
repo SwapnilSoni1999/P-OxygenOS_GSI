@@ -27,6 +27,11 @@ else
     echo "debug.hwui.profile=true" >> /vendor/build.prop
 fi
 
+if ! grep -Fxq "sys.use_fifo_ui=1" /vendor/build.prop
+then
+    echo "sys.use_fifo_ui=1" >> /vendor/build.prop
+fi
+
 #WIFI
 if ! grep -Fq "android.hardware.wifi.hostapd" /vendor/manifest.xml
 then
