@@ -19,6 +19,14 @@ fi
 #Disable PrivApp enforce
 sed -i 'ro.control_privapp_permissions=enforce/d' /vendor/build.prop
 
+# Enable GPU Profiling
+if ( getprop ro.vendor.product.device | grep -Fxq '(riva,rolex)' );then
+    GET_XIAOMI=1
+else
+    if [ -n "$GET_XIAOMI" ];then
+    echo "debug.hwui.profile=true" >> /vendor/build.prop
+fi
+
 #WIFI
 if ! grep -Fq "android.hardware.wifi.hostapd" /vendor/manifest.xml
 then
