@@ -99,4 +99,16 @@ if [ -e "/vendor/lib/libMiWatermark.so" ]; then
     fi
 fi
 
+# IMS HAX for gsi
+if [ -f /data/system/users/0/settings_global.xml ]; then
+    sed -i 's/"multi_sim_data_call" value="1"/"multi_sim_data_call" value="-1"/g' /data/system/users/0/settings_global.xml
+    restorecon /data/system/users/0/settings_global.xml
+fi
+
+# Fixes IMS re-register
+if ! grep -Fxq "persist.vendor.ims.dropset_feature=0" /system/build.prop
+then
+    echo "persist.vendor.ims.dropset_feature=0" >> /system/build.prop
+fi
+
 exit 0
