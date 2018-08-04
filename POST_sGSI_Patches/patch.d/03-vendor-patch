@@ -64,6 +64,11 @@ then
     sed -i "s/libkeystore_binder.so/libWkeystorebinder.so/" $fphal
 fi
 
+# HAX: Goodix data
+if [ ! -f /data/system/users/0/settings_fingerprint.xml ]; then
+    rm -rf /persist/data/finger_*
+fi
+
 #LG RIL
 if [ -e "/vendor/lib64/vendor.lge.hardware.radio@1.0.so" ]; then
     sed -i "s/android.hardware.radio@1.0.so/Wndroid.hardware.radio@1.0.so/" /vendor/lib/vendor.lge.hardware.radio@1.0.so
