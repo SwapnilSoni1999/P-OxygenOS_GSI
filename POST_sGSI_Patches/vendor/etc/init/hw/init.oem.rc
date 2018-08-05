@@ -115,13 +115,6 @@ on boot
  #endif /*VENDOR_EDIT*/
 
 #ifdef VENDOR_EDIT
-    # camera. enable mobicat
-    setprop persist.camera.mobicat 2
-    setprop persist.camera.stats.debugexif 3080192
-    # camera. enable mobicat
-#endif
-
-#ifdef VENDOR_EDIT
     chown system system /sys/class/leds/led:torch_0/brightness
     chmod 666 /sys/class/leds/led:torch_0/brightness
     chown system system /sys/class/leds/led:torch_1/brightness
