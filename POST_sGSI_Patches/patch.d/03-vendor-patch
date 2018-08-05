@@ -27,6 +27,7 @@ if ( getprop ro.vendor.product.device | grep -Fxq '(riva,rolex)' );then
     GET_XIAOMI=1
     if [ -n "$GET_XIAOMI" ];then
     echo "debug.hwui.profile=true" >> /vendor/build.prop
+    fi
 fi
 
 if ! grep -Fxq "sys.use_fifo_ui=1" /vendor/build.prop
@@ -120,6 +121,7 @@ if [ -e "/vendor/lib/libMiWatermark.so" ]; then
     then
         sed -i "s/libminikin.so/libWinikin.so/" /vendor/lib/libMiWatermark.so
         sed -i "s/libicuuc.so/libWcuuc.so/" /vendor/lib/libMiWatermark.so
+    fi
 fi
 if [ -e "/vendor/lib/hw/camera.sdm660.so" ]; then
     if grep -Fxq "_Z24dualcameraddm_k5DFT9dbFcPKhS0_iiiiS0_S0_iiiiPhiiiRiS2_S2_S2_PKcS4_S4_fiiS2_RS4_" /vendor/lib/hw/camera.sdm660.so

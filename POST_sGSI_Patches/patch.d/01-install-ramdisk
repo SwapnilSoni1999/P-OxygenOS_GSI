@@ -15,7 +15,7 @@ cp $tmp/ramdiskres/init.environ.rc ./
 chmod 0755 init.environ.rc
 
 rm -rf init.oem_ftm.rc
-cp $tmp/ramdiskres/init.oem_ftm.rc
+cp $tmp/ramdiskres/init.oem_ftm.rc ./
 chmod 0755 init.oem_ftm.rc
 
 rm -f init.rc
